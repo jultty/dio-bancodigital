@@ -8,14 +8,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        // versão 0.1 de 14/01/2022
+
         Scanner scan = new Scanner(System.in);
 
         List<String> operacoes = new ArrayList<>();
 
-        operacoes.add("versão 0.1 de 14/01/2022");
+        operacoes.add("");
         operacoes.add("criar conta");   operacoes.add("ver saldo");
         operacoes.add("depositar");     operacoes.add("sacar");
-        operacoes.add("transferir");    operacoes.add("reabrir conta");
+        operacoes.add("transferir");    operacoes.add("encerrar conta");
 
         System.out.println("Operações disponíveis:");
         for (int i = 1; i < 7; i++) {
@@ -28,12 +30,16 @@ public class Main {
         boolean entradaInvalida = true;
         while (entradaInvalida) {
             System.out.println("\n\n Digite o número da operação desejada: ");
-            String entradaString = scan.nextLine();
             try {
+                String entradaString = scan.nextLine();
                 entrada = Integer.parseInt(entradaString);
-                entradaInvalida = false;
+                if (entrada >= 1 && entrada < operacoes.size()) { entradaInvalida = false; }
             } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida.");
+                System.out.println("[Erro] Valor fornecido não é um número: " + e.getLocalizedMessage());
+            } catch (NullPointerException e) {
+                System.out.println("[Erro] Nenhum valor fornecido: " + e.getLocalizedMessage());
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("[Erro] Digite um valor do menu: " + e.getLocalizedMessage());
             }
         }
             // entrada válida
@@ -61,7 +67,7 @@ public class Main {
                 // ...
                 break;
             default:
-            System.out.println("Digite apenas o número da opção desejada");
+            System.out.println("Opção inválida");
                 break;
         }
 
