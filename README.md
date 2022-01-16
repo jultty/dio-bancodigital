@@ -6,4 +6,4 @@ Feito a partir da [implementação de referência](https://github.com/falvojr/la
 - Implementação do Lombok para getters
 - Menu de seleção das operações
 - Encerramento de contas
-- Senhas usando PBKDF2 e salt
+- Tratamento de exceções no menu
