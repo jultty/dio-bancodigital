@@ -8,6 +8,8 @@ public class Menu extends Main {
 
     Scanner scan = new Scanner(System.in);
 
+    Banco banco = new Banco();
+
     Cliente clienteTeste = new Cliente("Teste");
     Conta contaTeste = new ContaCorrente(clienteTeste);
 
@@ -32,6 +34,7 @@ public class Menu extends Main {
 
     int loopPrincipal = 1;
         while (loopPrincipal != 0) {
+            System.out.println("Contas: " + banco.getContas());
 
             int entrada = 0;
             boolean entradaInvalida = true;
@@ -64,6 +67,7 @@ public class Menu extends Main {
                     String nome = scan.nextLine();
                     Cliente novoCliente = new Cliente(nome);
                     Conta novaConta = new ContaCorrente(novoCliente);
+                    banco.addConta(novaConta);
                     novaConta.extrato();
                     break;
                 case 2: // ver saldo
