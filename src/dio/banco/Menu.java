@@ -5,12 +5,8 @@ import java.util.*;
 public class Menu extends Main {
 
     Scanner scan = new Scanner(System.in);
-
     Banco banco = new Banco();
     List<Conta> contas = banco.getContas();
-
-    Cliente clienteTeste = new Cliente("Teste");
-    Conta contaTeste = new ContaCorrente(clienteTeste);
 
     public Conta buscaConta(int conta) { // não consegue retornar a conta 1
         Iterator<Conta> it = contas.iterator();
