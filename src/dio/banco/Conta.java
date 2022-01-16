@@ -1,6 +1,7 @@
 package dio.banco;
 
 import lombok.Getter;
+import java.util.Scanner;
 
 @Getter
 public abstract class Conta implements IConta {
@@ -34,6 +35,10 @@ public abstract class Conta implements IConta {
     public void transferir(double valor, Conta contaDestino) {
         this.sacar(valor);
         contaDestino.depositar(valor);
+    }
+
+    public void setEncerrada(boolean encerrada) {
+        this.encerrada = encerrada;
     }
 
     protected void extratoComum() {
